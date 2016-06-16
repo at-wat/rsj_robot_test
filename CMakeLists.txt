@@ -23,5 +23,5 @@ endif()
 
 include_directories(${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 
-add_executable(rsj_robot_test src/rsj_robot_test.cpp)
-target_link_libraries(rsj_robot_test ${catkin_LIBRARIES})
+add_executable(rsj_robot_test_node src/rsj_robot_test.cpp)
+target_link_libraries(rsj_robot_test_node ${catkin_LIBRARIES})
