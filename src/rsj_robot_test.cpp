@@ -4,25 +4,25 @@
 
 #include <tf/transform_datatypes.h>
 
-class rsj_robot_test_node
+class RSJRobotTestNode
 {
 private:
-  ros::Subscriber sub_odom;
-  ros::Publisher pub_twist;
+  ros::Subscriber sub_odom_;
+  ros::Publisher pub_twist_;
 
   void cb_odom(const nav_msgs::Odometry::ConstPtr& msg)
   {
   }
 
 public:
-  rsj_robot_test_node()
+  RSJRobotTestNode()
   {
     ros::NodeHandle nh("~");
-    pub_twist = nh.advertise<geometry_msgs::Twist>(
+    pub_twist_ = nh.advertise<geometry_msgs::Twist>(
         "/ypspur_ros/cmd_vel", 5);
-    sub_odom = nh.subscribe(
+    sub_odom_ = nh.subscribe(
         "/ypspur_ros/odom", 5,
-        &rsj_robot_test_node::cb_odom, this);
+        &RSJRobotTestNode::cb_odom, this);
   }
   void mainloop()
   {
@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
 {
   ros::init(argc, argv, "rsj_robot_test_node");
 
-  rsj_robot_test_node robot_test;
+  RSJRobotTestNode robot_test;
 
   robot_test.mainloop();
 }
