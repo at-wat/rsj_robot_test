@@ -10,7 +10,7 @@ private:
   ros::Subscriber sub_odom_;
   ros::Publisher pub_twist_;
 
-  void cb_odom(const nav_msgs::Odometry::ConstPtr& msg)
+  void cbOdom(const nav_msgs::Odometry::ConstPtr& msg)
   {
   }
 
@@ -22,7 +22,7 @@ public:
         "cmd_vel", 5);
     sub_odom_ = nh.subscribe(
         "odom", 5,
-        &RSJRobotTestNode::cb_odom, this);
+        &RSJRobotTestNode::cbOdom, this);
   }
   void mainloop()
   {
