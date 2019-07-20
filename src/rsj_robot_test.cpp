@@ -17,11 +17,11 @@ private:
 public:
   RSJRobotTestNode()
   {
-    ros::NodeHandle nh("~");
+    ros::NodeHandle nh;
     pub_twist_ = nh.advertise<geometry_msgs::Twist>(
-        "/ypspur_ros/cmd_vel", 5);
+        "cmd_vel", 5);
     sub_odom_ = nh.subscribe(
-        "/ypspur_ros/odom", 5,
+        "odom", 5,
         &RSJRobotTestNode::cb_odom, this);
   }
   void mainloop()
