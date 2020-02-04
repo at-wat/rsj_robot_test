@@ -1,0 +1,12 @@
+dist: bionic
+language: minimal
+services: docker
+branches:
+  only:
+    - master
+
+script:
+  - |
+    docker run -it --rm \
+      -v $(pwd):/src/$(basename $(pwd)):ro \
+      alpineros/ros-abuild:3.7-kinetic
